@@ -1,16 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import {Header} from './Components/Header'
-import './App.css'
+import styles from './App.module.css'
+import Navbar from "./Components/Navbar/Navbar.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [headerName] = useState('Header')
   return (
     <>
-      <div>
-        {headerName}
+      <div className={styles.App}>
+          <Navbar />
       </div>
     </>
   )
