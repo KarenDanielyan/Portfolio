@@ -22,6 +22,10 @@
 	align-items: center;
 }
 
+.menuButton {
+	display: none;
+}
+
 .menuItems {
 	display: flex;
 	align-items: center;
