@@ -1,5 +1,4 @@
 import styles from './About.module.css';
-import {getAssetURL} from "../../utils.js";
 
 function About() {
     return (
@@ -7,26 +6,26 @@ function About() {
             <h2 className={styles.title}>About</h2>
             <div className={styles.content}>
                 <video className={styles.aboutVideo} controls>
-                    <source src={getAssetURL("about/video.mp4")} type="video/mp4"/>
+                    <source src="about/video.mp4" type="video/mp4"/>
                     Your browser does not support the video tag!
                 </video>
                 <ul className={styles.aboutItems}>
                     <li className={styles.aboutItem}>
-                        <img src={getAssetURL("about/info1.png")} alt="About 1"/>
+                        <img src="about/info1.png" alt="About 1"/>
                         <div>
                             <h3>Dummy Header</h3>
                             <p>Dummy Text</p>
                         </div>
                     </li>
                     <li className={styles.aboutItem}>
-                        <img src={getAssetURL("about/info2.png")} alt="About 2"/>
+                        <img src="about/info2.png" alt="About 2"/>
                         <div>
                             <h3>Education</h3>
                             <p>Put your education here.</p>
                         </div>
                     </li>
                     <li className={styles.aboutItem}>
-                        <img src={getAssetURL("about/info3.png")} alt="About 3"/>
+                        <img src="about/info3.png" alt="About 3"/>
                         <div>
                             <h3>Work in Progress</h3>
                             <p>Write some fancy LinkedIn style text.</p>

@@ -22,7 +22,7 @@ function Hero() {
                 </a>
             </div>
             <img
-                src={getAssetURL("hero/kdaniely.jpg")}
+                src={"hero/kdaniely.jpg"}
                 alt={"hero"}
                 className={styles.heroImage}
             />

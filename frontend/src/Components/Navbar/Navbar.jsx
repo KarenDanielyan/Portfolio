@@ -1,18 +1,17 @@
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import { getAssetURL } from "../../utils";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className={styles.navbar}>
+        <nav id='#' className={styles.navbar}>
             <a className={styles.title} href="#">Portfolio</a>
             <div className={styles.menu}>
                 <img className={styles.menuButton}
                      src={menuOpen
-                         ? getAssetURL("menu/close.svg")
-                         : getAssetURL("menu/menu.svg")}
+                         ? "menu/close.svg"
+                         : "menu/menu.svg"}
                      alt='menu-button'
                      onClick={() => {setMenuOpen(!menuOpen)}}
                 />

@@ -7,6 +7,6 @@
 	--color-bg: #04152d;
 
 	/* Fonts */
-	--font-primary: 'Roboto', sans-serif;
-	--font-secondary: 'Montserrat', sans-serif;
+	--font-primary: 'Roboto';
+	--font-secondary: 'Montserrat';
 }
