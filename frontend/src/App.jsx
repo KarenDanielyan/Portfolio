@@ -4,6 +4,7 @@ import Hero from "./Components/Hero/Hero.jsx";
 import About from "./Components/About/About.jsx";
 import Experience from "./Components/Experience/Experience.jsx";
 import Projects from "./Components/Projects/Projects.jsx";
+import Contacts from "./Components/Contacts/Contacts.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <About />
           <Experience />
           <Projects />
+          <Contacts />
       </div>
     </>
   )
