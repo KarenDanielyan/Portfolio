@@ -59,15 +59,17 @@ class   Skill(models.Model):
 
 class   Bullet(models.Model):
     icon = models.ImageField(upload_to='api/bucket/bullet')
+    header = models.CharField(max_length=100, default='')
     text = models.CharField(max_length=100)
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.text
+        return self.header
 
     def __json__(self):
         return {
             'icon': get_base64(self.icon.path),
+            'header': self.header,
             'text': self.text
         }
 
