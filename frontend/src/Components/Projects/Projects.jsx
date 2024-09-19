@@ -1,15 +1,28 @@
 import styles from './Projects.module.css';
-import projects from '../../../data/projects.json';
-import { ProjectContainer} from "./ProjectContainer.jsx";
+import {ProjectContainer} from "./ProjectContainer.jsx";
+import axios from 'axios';
+import {useEffect, useState} from "react";
 
 function Projects() {
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	const fetchData = () => {
+		axios.get("http://127.0.0.1:8000/api/projects/").then(
+			(response) => {
+				setData(response.data);
+			}
+		).catch(error => {
+			console.log(error);
+		});
+	}
 	return (
 		<section id="projects" className={styles.container}>
-			<h2 className={styles.title}>
-				Projects
-			</h2>
             <div className={styles.projects}>
-	            {projects.map((project, idx) => {return (<ProjectContainer key={idx} project={project}/>)})}
+	            {data?.map((project, idx) => {return (<ProjectContainer key={idx} project={project}/>)})}
             </div>
         </section>
   );

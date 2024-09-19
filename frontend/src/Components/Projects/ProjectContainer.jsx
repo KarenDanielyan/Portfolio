@@ -1,18 +1,19 @@
 import styles from './ProjectContainer.module.css';
 
-export function ProjectContainer({project: { title, description, source}})
+export function ProjectContainer({project})
 {
     return (
         <div className={styles.container}>
             <img
-                src={'projectImage.jpg'}
-                alt={`Image of ${title}`}
+                src={project?.image}
+                alt={`Image of ${project?.title}`}
                 className={styles.image}
             />
-            <h3 className={styles.title}>{title}</h3>
-            <p className={styles.description}>{description}</p>
+            <h3 className={styles.title}>{project?.title}</h3>
+            <h6 className={styles.date}>{project?.date}</h6>
+            <p className={styles.description}>{project?.description}</p>
             <div className={styles.links}>
-                <a href={source} className={styles.link}>
+                <a href={project?.source} className={styles.link}>
                     Source
                 </a>
             </div>
