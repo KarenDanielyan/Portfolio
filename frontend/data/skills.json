@@ -1,0 +1,30 @@
+[
+	{
+		"name": "HTML",
+		"path": "skills/html.svg"
+	},
+  	{
+	  	"name": "CSS",
+	  	"path": "skills/css.svg"
+	},
+  	{
+		"name": "React",
+		"path": "skills/react.svg"
+	},
+	{
+		"name": "Python",
+		"path": "skills/python.svg"
+	},
+	{
+		"name": "C",
+		"path": "skills/c.svg"
+	},
+	{
+		"name": "C++",
+		"path": "skills/cpp.svg"
+	},
+	{
+		"name": "Bash",
+		"path": "skills/bash.svg"
+	}
+]

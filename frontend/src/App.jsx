@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import {Header} from './Components/Header'
-import './App.css'
+import styles from './App.module.css'
+import Navbar from "./Components/Navbar/Navbar.jsx";
+import Hero from "./Components/Hero/Hero.jsx";
+import About from "./Components/About/About.jsx";
+import Experience from "./Components/Experience/Experience.jsx";
+import Projects from "./Components/Projects/Projects.jsx";
+import Contacts from "./Components/Contacts/Contacts.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [headerName] = useState('Header')
   return (
     <>
-      <div>
-        {headerName}
+      <div className={styles.App}>
+          <Navbar />
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Contacts />
       </div>
     </>
   )
