@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib import admin
 from base64 import b64encode
+from os import path as os_path
 
 # Create your models here.
 def get_base64(path):
+    _, extension = os_path.splitext(path)
     data = open(path, 'rb').read()
-    return "data:image/jpeg;base64,%s" % b64encode(data).decode("utf-8")
+    return f"data:image/{extension[1::]};base64,%s" % b64encode(data).decode("utf-8")
 
 class   Project(models.Model):
     title = models.CharField(max_length=100)
@@ -44,7 +46,7 @@ class   Contact(models.Model):
 
 class   Skill(models.Model):
     name = models.CharField(max_length=100)
-    icon = models.ImageField(upload_to='api/bucket/skill')
+    icon = models.FileField(upload_to='api/bucket/skill')
 
     def __str__(self):
         return self.name
