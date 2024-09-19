@@ -27,13 +27,14 @@ class   Project(models.Model):
             'image': f'{get_base64(f"{self.image}")}'
         }
 
-class   Contacts(models.Model):
+class   Contact(models.Model):
     date = models.DateField(default=current())
     email = models.EmailField()
     github = models.URLField()
     linkedin = models.URLField()
 
     def __str__(self):
-        return
+        return self.date
 
 admin.site.register(Project)
+admin.site.register(Contact)
