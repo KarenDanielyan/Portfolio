@@ -1,6 +1,7 @@
 aboutme_venv
 app/*/__pycache__
 app/*/migrations
+app/*/bucket
 app/db.sqlite3
 
 # Static and media files
