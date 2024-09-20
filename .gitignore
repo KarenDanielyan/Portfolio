@@ -1,4 +1,4 @@
-aboutme_venv
+venv
 app/*/__pycache__
 app/*/migrations
 app/*/bucket
