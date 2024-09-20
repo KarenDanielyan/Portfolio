@@ -38,6 +38,12 @@ def experience(request):
 def bio(request):
     if request.method == 'GET':
         entry = Bio.objects.first()
-        if entry is None:
-            return JsonResponse({'text': '', 'image': ''})
-        return JsonResponse(Bio.objects.first().__json__())
+        json = {
+            'image': '',
+            'text': '',
+            'email': ''
+        }
+        if entry is not None:
+            json = entry.__json__()
+            json['email'] = Contact.objects.first().email
+        return JsonResponse(json, safe=False)
