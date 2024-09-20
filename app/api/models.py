@@ -100,8 +100,23 @@ class   Experience(models.Model):
             'summary': self.summary
         }
 
+class   Bio(models.Model):
+    timestamp = models.DateField(auto_now=True)
+    text = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='api/bucket/bio')
+
+    def __str__(self):
+        return str(self.timestamp)
+
+    def __json__(self):
+        return {
+            'text': self.text,
+            'image': get_base64(self.image.path)
+        }
+
 admin.site.register(Project)
 admin.site.register(Contact)
 admin.site.register(Skill)
 admin.site.register(Bullet)
 admin.site.register(Experience)
+admin.site.register(Bio)

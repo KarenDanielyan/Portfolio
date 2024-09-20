@@ -1,4 +1,3 @@
-from django.core import serializers
 from django.http import JsonResponse
 
 from .models import Project
@@ -6,6 +5,7 @@ from .models import Contact
 from .models import Skill
 from .models import Bullet
 from .models import Experience
+from .models import Bio
 
 # Create your views here.
 def projects(request):
@@ -34,3 +34,10 @@ def experience(request):
     if request.method == 'GET':
         elist = list(map(lambda e: e.__json__(), Experience.objects.all()))
         return JsonResponse(elist, safe=False)
+
+def bio(request):
+    if request.method == 'GET':
+        entry = Bio.objects.first()
+        if entry is None:
+            return JsonResponse({'text': '', 'image': ''})
+        return JsonResponse(Bio.objects.first().__json__())
