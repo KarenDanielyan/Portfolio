@@ -1,6 +1,36 @@
 import styles from './About.module.css';
+import {useState, useEffect} from "react";
+import axios from "axios";
+
+function Bullet({bullet}) {
+    return (
+        <li className={styles.aboutItem}>
+            <img src={bullet?.icon} alt={""}/>
+            <div>
+                <h3>{bullet?.header}</h3>
+                <p>{bullet?.text}</p>
+            </div>
+        </li>
+    );
+}
 
 function About() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = () => {
+        axios.get("http://localhost:8000/api/bullets/").then(
+            (response) => {
+                setData(response.data);
+            }
+        ).catch(error => {
+            console.log(error);
+        });
+    }
+
     return (
         <section id='about' className={styles.container}>
             <h2 className={styles.title}>About</h2>
@@ -10,28 +40,8 @@ function About() {
                     Your browser does not support the video tag!
                 </video>
                 <ul className={styles.aboutItems}>
-                    <li className={styles.aboutItem}>
-                        <img src="about/info1.png" alt="About 1"/>
-                        <div>
-                            <h3>Dummy Header</h3>
-                            <p>Dummy Text</p>
-                        </div>
-                    </li>
-                    <li className={styles.aboutItem}>
-                        <img src="about/info2.png" alt="About 2"/>
-                        <div>
-                            <h3>Education</h3>
-                            <p>Put your education here.</p>
-                        </div>
-                    </li>
-                    <li className={styles.aboutItem}>
-                        <img src="about/info3.png" alt="About 3"/>
-                        <div>
-                            <h3>Work in Progress</h3>
-                            <p>Write some fancy LinkedIn style text.</p>
-                        </div>
-                    </li>
-                </ul>
+                    {data?.map((bullet, idx) => {return (<Bullet key={idx} bullet={bullet}/>)})}
+               </ul>
             </div>
         </section>
     )
