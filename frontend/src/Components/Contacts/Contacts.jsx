@@ -2,17 +2,23 @@ import styles from './Contacts.module.css';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
+const defaultData = {
+	"email": "mail@mail.com",
+	"github": "github.com",
+	"linkedin": "linkedin.com"
+}
+
 function Contacts() {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState(defaultData);
 
 	useEffect(() => {
 		fetchData();
 	}, []);
 
-	const fetchData = () => {
-		axios.get("http://localhost:8000/api/contacts/").then(
+	const fetchData = async () => {
+		await axios.get("http://localhost:8000/api/contacts/").then(
 			(response) => {
-			setData(response.data);
+				setData(response.data);
 			}
 		).catch(error => {
 			console.log(error);

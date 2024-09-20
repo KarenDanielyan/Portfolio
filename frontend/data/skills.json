@@ -1,30 +1,30 @@
 [
 	{
 		"name": "HTML",
-		"path": "skills/html.svg"
+		"icon": "skills/html.svg"
 	},
   	{
 	  	"name": "CSS",
-	  	"path": "skills/css.svg"
+	  	"icon": "skills/css.svg"
 	},
   	{
 		"name": "React",
-		"path": "skills/react.svg"
+		"icon": "skills/react.svg"
 	},
 	{
 		"name": "Python",
-		"path": "skills/python.svg"
+		"icon": "skills/python.svg"
 	},
 	{
 		"name": "C",
-		"path": "skills/c.svg"
+		"icon": "skills/c.svg"
 	},
 	{
 		"name": "C++",
-		"path": "skills/cpp.svg"
+		"icon": "skills/cpp.svg"
 	},
 	{
 		"name": "Bash",
-		"path": "skills/bash.svg"
+		"icon": "skills/bash.svg"
 	}
 ]

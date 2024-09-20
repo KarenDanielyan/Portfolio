@@ -1,10 +1,11 @@
+import prj from '../../../data/projects.json';
 import styles from './Projects.module.css';
 import {ProjectContainer} from "./ProjectContainer.jsx";
 import axios from 'axios';
 import {useEffect, useState} from "react";
 
 function Projects() {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState(prj);
 
 	useEffect(() => {
 		fetchData();
