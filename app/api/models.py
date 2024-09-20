@@ -7,7 +7,11 @@ from os import path as os_path
 def get_base64(path):
     _, extension = os_path.splitext(path)
     data = open(path, 'rb').read()
-    return f"data:image/{extension[1::]};base64,%s" % b64encode(data).decode("utf-8")
+    raw = b64encode(data).decode("utf-8")
+    if extension == '.svg':
+        return f"data:image/svg+xml;base64,{raw}"
+    else:
+        return f"data:image/{extension[1::]};base64,{raw}"
 
 class   Project(models.Model):
     title = models.CharField(max_length=100)
