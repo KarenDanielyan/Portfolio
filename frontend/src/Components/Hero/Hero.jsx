@@ -1,7 +1,23 @@
 import styles from './Hero.module.css'
-import {getAssetURL} from "../../utils.js";
+import {useState, useEffect} from "react";
+import axios from "axios";
+
 
 function Hero() {
+    const [{image, text, email}, setData] = useState({name: "", description: ""});
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = () =>
+    {
+        axios.get("http://localhost:8000/api/bio").then((response) => {
+            setData(response.data);}).catch(error =>
+            {
+                console.log(error);
+            });
+    }
     return (
         <section className={styles.container}>
             <div className={styles.content}>
@@ -10,19 +26,17 @@ function Hero() {
                     <img
                         src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif"
                         alt="wave"
-                        className={styles.wave}
                     />
                 </h1>
                 <p className={styles.description}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    In hac habitasse platea dictumst. Nullam nec fermentum dolor.
+                    {text}
                 </p>
-                <a href="mailto:myemail@email.com" className={styles.contactButton}>
+                <a href={`mailto:${email}`} className={styles.contactButton}>
                 Contact Me
                 </a>
             </div>
             <img
-                src={"hero/kdaniely.jpg"}
+                src={image}
                 alt={"hero"}
                 className={styles.heroImage}
             />
