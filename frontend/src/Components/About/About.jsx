@@ -22,7 +22,7 @@ function About() {
     }, []);
 
     const fetchData = () => {
-        axios.get("http://localhost:8000/api/bullets/").then(
+        axios.get(`${import.meta.env.VITE_API_ENDPOINT}/bullets`).then(
             (response) => {
                 setData(response.data);
             }

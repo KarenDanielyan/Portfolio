@@ -4,19 +4,18 @@ import axios from "axios";
 
 
 function Hero() {
-    const [{image, text, email}, setData] = useState({name: "", description: ""});
+    const [{text, image, email}, setData] = useState({text: "", image: "", email: ""});
 
     useEffect(() => {
-        fetchData();
+        fetchData().catch(error => {
+            console.log(error);
+        });
     }, []);
 
-    const fetchData = () =>
+    const fetchData = async () =>
     {
-        axios.get("http://localhost:8000/api/bio").then((response) => {
-            setData(response.data);}).catch(error =>
-            {
-                console.log(error);
-            });
+        const response = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/bio`)
+        setData(await response.data);
     }
     return (
         <section className={styles.container}>

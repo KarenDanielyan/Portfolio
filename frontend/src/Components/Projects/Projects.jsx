@@ -12,7 +12,7 @@ function Projects() {
 	}, []);
 
 	const fetchData = () => {
-		axios.get("http://127.0.0.1:8000/api/projects/").then(
+		axios.get(`${import.meta.env.VITE_API_ENDPOINT}/projects/`).then(
 			(response) => {
 				setData(response.data);
 			}

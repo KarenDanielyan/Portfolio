@@ -16,7 +16,7 @@ function Contacts() {
 	}, []);
 
 	const fetchData = async () => {
-		await axios.get("http://localhost:8000/api/contacts/").then(
+		await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/contacts/`).then(
 			(response) => {
 				setData(response.data);
 			}
