@@ -46,4 +46,4 @@ def bio(request):
         if entry is not None:
             json = entry.__json__()
             json['email'] = Contact.objects.first().email
-        return JsonResponse(json, safe=False)
+        return JsonResponse(json)
