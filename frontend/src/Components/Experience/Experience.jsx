@@ -38,8 +38,8 @@ function Experience() {
 
     const fetchData = () => {
         axios.all([
-            axios.get("http://localhost:8000/api/skills/"),
-            axios.get("http://localhost:8000/api/experience/")
+            axios.get(`${import.meta.env.VITE_API_ENDPOINT}/skills/`),
+            axios.get(`${import.meta.env.VITE_API_ENDPOINT}/experience/`)
         ]).then(
             axios.spread((skillsResponse, timelineResponse) => {
                 setSkills(skillsResponse.data);

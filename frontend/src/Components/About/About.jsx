@@ -1,5 +1,6 @@
 import styles from './About.module.css';
 import {useState, useEffect} from "react";
+import about from "../../../data/about.json";
 import axios from "axios";
 
 function Bullet({bullet}) {
@@ -15,14 +16,14 @@ function Bullet({bullet}) {
 }
 
 function About() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(about);
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = () => {
-        axios.get("http://localhost:8000/api/bullets/").then(
+        axios.get(`${import.meta.env.VITE_API_ENDPOINT}/bullets`).then(
             (response) => {
                 setData(response.data);
             }

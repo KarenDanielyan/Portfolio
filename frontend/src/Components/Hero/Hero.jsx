@@ -1,22 +1,22 @@
 import styles from './Hero.module.css'
 import {useState, useEffect} from "react";
+import hero from "../../../data/hero.json";
 import axios from "axios";
 
 
 function Hero() {
-    const [{image, text, email}, setData] = useState({name: "", description: ""});
+    const [{text, image, email}, setData] = useState(hero);
 
     useEffect(() => {
-        fetchData();
+        fetchData().catch(error => {
+            console.log(error);
+        });
     }, []);
 
-    const fetchData = () =>
+    const fetchData = async () =>
     {
-        axios.get("http://localhost:8000/api/bio").then((response) => {
-            setData(response.data);}).catch(error =>
-            {
-                console.log(error);
-            });
+        const response = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/bio`)
+        setData(await response.data);
     }
     return (
         <section className={styles.container}>
@@ -26,6 +26,7 @@ function Hero() {
                     <img
                         src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif"
                         alt="wave"
+                        loading="lazy"
                     />
                 </h1>
                 <p className={styles.description}>
@@ -37,6 +38,7 @@ function Hero() {
             </div>
             <img
                 src={image}
+                loading="lazy"
                 alt={"hero"}
                 className={styles.heroImage}
             />
