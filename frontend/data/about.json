@@ -1,0 +1,17 @@
+[
+	{
+		"icon": "about/info1.png",
+		"header": "Work In Progress",
+		"text": "I am currently working on a project called ClimateNet"
+	},
+	{
+		"icon": "about/info2.png",
+		"header": "Educational Goals",
+		"text": "I am currently pursuing PhD in Engineering Sciences"
+	},
+	{
+		"icon": "about/info3.png",
+		"header": "Hobbies",
+		"text": "In my spare time I enjoy photography."
+	}
+]
